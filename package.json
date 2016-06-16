@@ -1,0 +1,23 @@
+{
+  "name": "translators",
+  "version": "1.0.1",
+  "description": "updates translators to test",
+  "main": "translators.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "suyash",
+  "license": "ISC",
+  "dependencies": {
+    "eval": "^0.1.1",
+    "ls": "^0.1.0",
+    "readline-sync": "^1.4.4",
+    "regex": "^0.1.1",
+    "prompt": "^1.0.0",
+    "replace": "^0.3.0"
+  },
+  "devDependencies": {},
+  "keywords": [
+    "test.js"
+  ]
+}
