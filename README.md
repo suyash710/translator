@@ -18,10 +18,12 @@ It makes a .JSON file with the Data arrays received by it.
 1)**Translator**-
 Its the Main Function , all the Conditional Statements will be Executed in here.
 
-```
-#!python
 
--> enter- from: , to: , Operation:
+
+```
+#!java
+
+->Enter:- from: , to: , Operation:
 ->Test the string?
       ->(yes)Happy with the Test?
                ->(yes)Want to Add More?
@@ -31,7 +33,9 @@ Its the Main Function , all the Conditional Statements will be Executed in here.
       ->(no)Want to Add More?
                -(yes)push data, loop to Translator.
                -(no) push data, END!
+
 ```
+
 
 
 2)**Testing**-
