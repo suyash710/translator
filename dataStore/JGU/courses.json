@@ -1,0 +1,32 @@
+[
+  {
+    "from": "Object Orented",
+    "to": "SCOPE",
+    "operation": "from"
+  },
+  {
+    "from": "Operating Sys",
+    "to": "SCOPE",
+    "operation": "from"
+  },
+  {
+    "from": "Data Structures",
+    "to": "SCOPE",
+    "operation": "to"
+  },
+  {
+    "from": "Computer Arc.",
+    "to": "Scope",
+    "operation": "to"
+  },
+  {
+    "from": "Engg. Drawing",
+    "to": "SMBS",
+    "operation": "to"
+  },
+  {
+    "from": "Engg. Graphics",
+    "to": "SMBS",
+    "operation": "from"
+  }
+]

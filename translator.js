@@ -2,71 +2,100 @@ var readlineSync = require('readline-sync');
 var repace = require('replace');
 var fs = require('fs');
 var path = require('path');
+
 var json =[];
+//input College Name for the folder.
+var college = readlineSync.question('\nCollege - ');
 
-var testing = function(result,string){
-		
-	  	var res = string.replace(result.from,string);
-  		console.log(res); 
-  		var from =string;
-  		var to = string
-  		console.log(eval(result.operation));
- } 
+//makes a folder with var college
+var dir = './dataStore/'+college;
+if (!fs.existsSync(dir)){
+    fs.mkdirSync(dir);}
 
+//input data for the file name (.Json) 
+var data = readlineSync.question('Data type -  ');
+
+//function to Test the Input String-
+var testing = function(result,testString){
+	try{
+		var res = testString.replace(result.from,testString);
+  		var from =testString; var to = testString; 		
+  		console.log('test is- '+eval(result.operation));
+	}
+	// Error in operation :-
+	catch (err){
+		console.log('ERROR in Operation!');console.log('enter the Entity again');
+	  	translator();
+ 	} 
+}
+//Main() function-
 var translator = function() {
-	// console.log("enter 'esc' anywhere to exit");
  	var result = {
-        from: null,
-        'to': null,
-        'operation': null}
+ 	   'from': [],
+       'to': [],
+       'operation': []}
 
-result.from = readlineSync.question('from\t');
-result.to = readlineSync.question('to\t');
-result.operation = readlineSync.question('operation\t');
-console.log('\ncommand line input is \nfrom \t' + result.from + '\nto\t ' + result.to + '\noperation\t'+ result.operation);
+//reading the Data from User- 
+result.from = readlineSync.question('\nfrom -  ');
+result.to = readlineSync.question('to - \t');
+result.operation = readlineSync.question('operation (from) -  ');
+	if (result.operation === '')
+		{result.operation = 'from';}
 
-var test= readlineSync.question("\n Do want to test it?\t enter - (y/n)\t\n to Exit enter'esc'\n");
-if (test === 'y' || test === 'Y'){
+//Displays the Data Entered	
+console.log(result);
 
-	var string=readlineSync.question('\ninput the string to be tested.');
-	console.log('string is-\t'+ string);
-	testing(result,string);
-	console.log('are you happy with test');
-	var happy= readlineSync.question('enter - (y/n)');
+//condition whether to Test the String- 
+var test= readlineSync.question("\nDo want to Test it? (y/n)- ");
+ if (test === 'y' || test === 'Y'){
 
-	if (happy === 'y' || happy === 'Y')
-		{
-		var x=readlineSync.question("\n Enter ('esc') to enter,To continue enter ('y') \t");
-			if (x === 'esc'){
+	//input the String to Test
+	var testString=readlineSync.question("\nInput to be tested- ");
+	console.log('string is-\t'+ testString);
+	//Calling the 'testing' Function
+	testing(result,testString);
+
+	//input if you are Happy with the test-
+	var happy= readlineSync.question("\nAre you Happy with test (y/n)- ");
+	if (happy === 'y' || happy === 'Y'){
+
+		//do you Want to add more entity
+		var addEntity = readlineSync.question("\nDo you Want to Add more Entities? (y/n)- ");
+			//Exit the Programme and output the Json
+			if (addEntity === 'n'){
 				json.push(result);
-				console.log(json);
-				var outPath = path.join(__dirname, "./out.json");
+				console.log(json);console.log("\nEND");
+				var outPath = path.join(__dirname, "./dataStore/"+college+"/"+data+".json");
 			    fs.writeFileSync(outPath, JSON.stringify(json,null,2), 'utf8', 
 			    function(err){console.log(err);});
 				}
-			else{
+			else if (addEntity === 'y'){
 				json.push(result);
 				translator();					
-			}	
-
+			}
 		}
-	else{
-		console.log("\nloop this to old start");
+	else{	//if you are not happy with the Test.
+		console.log("\nEnter the Entity again-");
 		translator();
 		}
 	}
-else if (test === 'esc'){
-	json.push(result);
-	console.log(json);
-	var outPath = path.join(__dirname, "./out.json");
-      fs.writeFileSync(outPath, JSON.stringify(json,null,2), 'utf8', 
-      function(err){console.log(err);});
-}
 
-else{ 
-	json.push(result);
-	translator();
-	}
+ else if (test === 'n' || test === 'N'){ 
+ 	
+ 	//Do you wanna add more Entities- 
+	var addEntity=readlineSync.question("Do you Want to Add more Entities (y/n)- ");
+		//Exit the Programme and output the Json
+		if (addEntity === 'n'){
+			json.push(result);
+			console.log(json);console.log("\nEND");
+			var outPath = path.join(__dirname, "./dataStore/"+college+"/"+data+".json");
+		    fs.writeFileSync(outPath, JSON.stringify(json,null,2), 'utf8', 
+		    function(err){console.log(err);});
+				}
+		else if (addEntity === 'y'){
+			json.push(result);
+			translator();					
+			}	
+		}
 }
-
 translator();
