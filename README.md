@@ -3,7 +3,7 @@
 Translator Reads User input, and based on the Operation it modifies the data.
 It makes a .JSON file with the Data arrays received by it.
 
-Steps-
+**## Steps ##**-
 
 1. User Inputs the Name of College and type of data associated with it.
 2. Then it Inputs the Data for the corresponding Type.
@@ -14,8 +14,7 @@ Steps-
 4. The Data keeps on pushing into the Json Array.
 5. Once the program is executed completely, it will make a Json file, with College as a folder Name and Data Type as the filename.
          
-Functions -
-
+## **Functions -** ##
 1)Translator-
 Its the Main Function , all the Conditional Statements will be Executed in here.
 -> enter- from: , to: , Operation:
@@ -31,5 +30,3 @@ Its the Main Function , all the Conditional Statements will be Executed in here.
 
 2)Testing-
 This function Test's the String, Using the eval() function
-
- 
