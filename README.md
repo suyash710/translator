@@ -3,14 +3,14 @@
 Translator Reads User input, and based on the Operation it modifies the data.
 It makes a .JSON file with the Data arrays received by it.
 
-**## Steps ##**-
+## ** Steps -** ##
 
 1. User Inputs the Name of College and type of data associated with it.
 2. Then it Inputs the Data for the corresponding Type.
-3. Conditionals:
-   -> if user wants to Test a String.
-     ->(yes) enter the test string.
-     ->(no) End of this Entity, you can now enter a newer one.
+3.. Conditionals:
+    -> if user wants to Test a String.
+      ->(yes) enter the test string.
+      ->(no) End of this Entity, you can now enter a newer one.
 4. The Data keeps on pushing into the Json Array.
 5. Once the program is executed completely, it will make a Json file, with College as a folder Name and Data Type as the filename.
          
